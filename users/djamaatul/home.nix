@@ -11,9 +11,9 @@
     neofetch
   ];
 
+
   imports = [
     ./programs/git.nix
-    ./programs/kitty.nix
-    ./programs/fish.nix
+    ./programs/alacritty.nix
   ];
 }
