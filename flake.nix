@@ -1,7 +1,7 @@
 {
   description = "My cross system flake";
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nixvim, ... }: 
   let 
 
     username = "djamaatul";
@@ -14,6 +14,9 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "bak";
+      home-manager.sharedModules = [
+        nixvim.homeModules.nixvim
+      ];
     };
 
   in {
@@ -52,6 +55,8 @@
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim";
   };
 
 }

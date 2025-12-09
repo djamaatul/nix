@@ -1,0 +1,11 @@
+{
+  opts = {
+    updatetime = 100;
+    relativenumber = true;
+    number = true;
+    mouse = "a";
+    tabstop = 2;
+    shiftwidth = 2;
+    expandtab = true;
+  };
+}

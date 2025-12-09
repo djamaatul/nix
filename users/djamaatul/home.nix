@@ -15,5 +15,6 @@
   imports = [
     ./programs/git.nix
     ./programs/alacritty.nix
+    ./programs/nvim
   ];
 }

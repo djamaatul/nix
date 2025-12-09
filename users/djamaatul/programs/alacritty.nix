@@ -6,12 +6,12 @@
     settings = {
       window = {
         padding = {
-          x = 20;
-          y = 10;
+          x = 4;
+          y = 4;
         };
         dynamic_padding = true;
         decorations = "Buttonless";
-        opacity = 0.5;
+        opacity = 0.2;
         blur = true;
         startup_mode = "Windowed";
         dynamic_title = true;
@@ -22,6 +22,11 @@
       terminal = {
         shell = "${pkgs.fish}/bin/fish";
         osc52 = "CopyPaste";
+      };
+      mouse = {
+        bindings = [
+          { mouse = "Right"; mods = "Control"; action = "ExpandSelection"; }
+        ];
       };
     };
   };
