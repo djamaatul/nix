@@ -6,16 +6,22 @@
     settings = {
       window = {
         padding = {
-          x = 4;
-          y = 4;
+          x = 10;
+          y = 10;
         };
         dynamic_padding = true;
         decorations = "Buttonless";
         opacity = 0.2;
         blur = true;
-        startup_mode = "Windowed";
+        startup_mode = "Maximized";
         dynamic_title = true;
         option_as_alt = "OnlyLeft";
+      };
+      font = {
+        normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
+        bold   = { family = "FiraCode Nerd Font"; style = "Bold"; };
+        italic = { family = "FiraCode Nerd Font"; style = "Italic"; };
+        size = 13.0;
       };
     };
     settings = {

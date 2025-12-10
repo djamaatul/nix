@@ -9,8 +9,11 @@
 
   home.packages = with pkgs; [
     neofetch
+    pkgs.nerd-fonts.fira-code
+    fzf
   ];
 
+  fonts.fontconfig.enable = true;
 
   imports = [
     ./programs/git.nix
