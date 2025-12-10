@@ -10,6 +10,8 @@
 
   imports = [
     ../../modules/darwin/homebrew.nix
+    ../../modules/darwin/aerospace.nix
+    ../../modules/darwin/system.nix
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -21,13 +23,6 @@
     home = "/Users/djamaatul";
     uid = 501;
     shell = pkgs.fish;
-  };
-
-  system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
-    finder.FXPreferredViewStyle = "Nlsv";
-    screencapture.location = "~/Pictures/screenshots";
   };
 
   time.timeZone = "Asia/Jakarta";
