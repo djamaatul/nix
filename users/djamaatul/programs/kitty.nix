@@ -16,7 +16,7 @@
       window_padding_width = "10";
       titlebar-and-corners = "yes";
 
-      mouse_hide_wait = .1;
+      mouse_hide_wait = ".1";
 
       tab_bar_edge = "htop";
       tab_bar_style = "powerline";

@@ -12,7 +12,7 @@
         prune = true;
       };
       code = {
-        editor = "vim";
+        editor = "${pkgs.neovim}/bin/nvim";
       };
       user = {
         email = "djamaatul.anbiya@gmail.com";

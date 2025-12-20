@@ -1,18 +1,10 @@
 {
+  plugins.transparent.enable = true;
+  colorschemes.vague.enable = true;
   colorschemes.kanagawa = {
-    enable = true;
+    enable = false;
     settings = {
-      transparent = true;
       theme = "dragon";
-      overrides = ''
-        function(colors)
-          return {
-            LineNr = { fg = colors.theme.ui.special, bg = "none" },
-            CursorLineNr = { fg = colors.theme.ui.special, bg = "none" },
-            WinSeparator = { fg = colors.theme.ui.special, bg = "none" },
-          }
-        end
-      '';
     };
   };
 }

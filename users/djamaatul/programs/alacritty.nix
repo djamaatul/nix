@@ -12,7 +12,7 @@
         dynamic_padding = true;
         decorations = "Buttonless";
         opacity = 0.6;
-        blur = true;
+        #blur = true;
         startup_mode = "Maximized";
         dynamic_title = true;
         option_as_alt = "OnlyLeft";

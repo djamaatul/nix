@@ -7,20 +7,6 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>e";
-      options.silent = true;
-      action = ":Neotree reveal toggle<CR>";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>q";
-      options.silent = true;
-      action = ":bdelete<CR>";
-    }
-
-    {
-      mode = "n";
       key = "<c-h>";
       action = "<c-w>h";
     }
@@ -41,13 +27,7 @@
     }
     {
       mode = "n";
-      key = "H";
-      options.silent = true;
-      action = ":bprevious<CR>";
-    }
-    {
-      mode = "n";
-      key = "L";
+      key = "<c-tab>";
       options.silent = true;
       action = ":bnext<CR>";
     }
@@ -62,6 +42,17 @@
       key = "K";
       action = ":m '<-2<CR>gv=gv";
     }
+    {
+      mode = "n";
+      key = "J";
+      action = "}";
+    }
+    {
+      mode = "n";
+      key = "K";
+      action = "{";
+    }
+
 
     {
       mode = "n";
@@ -121,18 +112,11 @@
       key = "c";
       action = ''"_c'';
     }
-    
     {
-      mode = "n";
-      key = "<c-/>";
+      mode = "x";
+      key = "p";
       options.silent = true;
-      options.noremap = true;
-      action = ":term<CR>";
-    }
-    {
-      mode = "t";
-      key = "<esc>";
-      action = "<c-\\><c-n>";
+      action = "P";
     }
   ];
 }

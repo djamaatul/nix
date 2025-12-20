@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ pkgs, ... }:
 
 {
 
@@ -11,6 +11,10 @@
     neofetch
     pkgs.nerd-fonts.fira-code
     fzf
+    podman
+    go
+    lua
+    lazygit
   ];
 
   fonts.fontconfig.enable = true;
