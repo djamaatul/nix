@@ -33,7 +33,5 @@
     { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename(<cr>)"; }
 
     { mode = "n"; key = "<leader>f"; action = ":lua vim.lsp.buf.format()<cr>"; }
-
-    { mode = "x"; key = "<leader>ca"; action = ""; }
   ];
 }

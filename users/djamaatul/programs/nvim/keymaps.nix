@@ -98,8 +98,13 @@
     }
     {
       mode = "n";
-      key = "dd";
-      action = ''"_dd'';
+      key = "d";
+      action = ''"_d'';
+    }
+    {
+      mode = "n";
+      key = "D";
+      action = ''"_D'';
     }
 
     {
@@ -113,11 +118,23 @@
       action = ''"_c'';
     }
     {
+      mode = "n";
+      key = "C";
+      action = ''"_C'';
+    }
+    {
+      mode = "n";
+      key = "c";
+      action = ''"_c'';
+    }
+
+    {
       mode = "x";
       key = "p";
       options.silent = true;
-      action = "P";
+      action = ''"_dP"'';
     }
+
   ];
 }
 

@@ -1,8 +1,11 @@
 {
-  plugins.web-devicons.enable = true;
-  plugins.treesitter.enable = true;
-  plugins.lazygit.enable = true;
-  plugins.visual-multi.enable = true;
+  plugins = {
+    web-devicons.enable = true;
+    treesitter.enable = true;
+    visual-multi.enable = true;
+    smear-cursor.enable = true;
+    autoclose.enable = true;
+  };
 
   imports = [
     ./comment.nix
@@ -18,5 +21,7 @@
     ./telescope.nix
     ./snippet.nix
     ./diagnostics.nix
+    ./lazygit.nix
+    ./cursor.nix
   ];
 }

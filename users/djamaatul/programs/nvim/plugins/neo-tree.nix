@@ -3,10 +3,8 @@
     enable = true;
     settings = {
       close_if_last_window = false;
-      #open_on_setup = false;
-      #open_on_setup_file = false;
       window = {
-        width = 30;
+        width = 40;
         mappings = {
           l = "open";
         };
