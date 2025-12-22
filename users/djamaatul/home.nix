@@ -15,6 +15,7 @@
     go
     lua
     lazygit
+    curl
   ];
 
   fonts.fontconfig.enable = true;

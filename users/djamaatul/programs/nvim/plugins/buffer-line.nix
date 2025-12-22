@@ -49,5 +49,12 @@
      options.silent = true;
      action = ":BufferLineCloseOthers<cr>";
    }
+
+   {
+     mode = "n";
+     key = "<leader>q";
+     options.silent = true;
+     action = ":Bdelete<cr>";
+   }
   ];
 }

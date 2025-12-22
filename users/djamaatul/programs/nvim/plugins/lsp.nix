@@ -1,3 +1,12 @@
+let
+
+  map = { m, k, a, o ? { silent = true; } }: {
+    mode = m;
+    key = k;
+    action = a;
+    options = o;
+  };
+in
 {
   plugins = {
     lsp = {
@@ -19,6 +28,19 @@
       };
     };
   };
+
+  extraConfigLua = ''
+    function rangeFormat()
+      vim.lsp.buf.format({
+        async = true,
+        range = {
+          ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+          ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+        }
+      })
+    end
+  '';
+
   keymaps = [
     { mode = "n"; key = "gd"; action = ":lua vim.lsp.buf.definition()<cr>"; }
     { mode = "n"; key = "gD"; action = ":lua vim.lsp.buf.declaration()<cr>"; }
@@ -32,6 +54,9 @@
     { mode = "n"; key = "<leader>ca"; action = ":lua vim.lsp.buf.code_action()<cr>"; }
     { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename(<cr>)"; }
 
-    { mode = "n"; key = "<leader>f"; action = ":lua vim.lsp.buf.format()<cr>"; }
+    (map { m = "n"; k = "<leader>cf"; a = ":lua vim.lsp.buf.format({ async = true })<cr>"; })
+
+    (map { m = "v"; k = "<leader>cf"; a = ":lua rangeFormat()<cr>"; })
+
   ];
 }

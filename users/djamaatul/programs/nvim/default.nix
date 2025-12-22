@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
 {
-  programs.nixvim = { lib, ... }: {
+  programs.nixvim = { ... }: {
     enable = true;
 
     viAlias = true;

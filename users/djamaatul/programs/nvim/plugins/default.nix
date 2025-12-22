@@ -5,6 +5,7 @@
     visual-multi.enable = true;
     smear-cursor.enable = true;
     autoclose.enable = true;
+    rest.enable = true;
   };
 
   imports = [

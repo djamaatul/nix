@@ -9,7 +9,9 @@
     expandtab = true;
     wrap = false;
     shell = "fish";
+    cursorline = true;
   };
+
   diagnostic.settings = {
     virtual_lines = {
       current_line = true;

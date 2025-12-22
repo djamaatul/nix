@@ -88,6 +88,13 @@
 
     {
       mode = "n";
+      key = "x";
+      action = "d";
+      options.noremap = false;
+    }
+
+    {
+      mode = "n";
       key = "xx";
       action = "dd";
     }
