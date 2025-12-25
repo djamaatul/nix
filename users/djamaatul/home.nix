@@ -16,6 +16,7 @@
     lua
     lazygit
     curl
+    dbeaver-bin
   ];
 
   fonts.fontconfig.enable = true;

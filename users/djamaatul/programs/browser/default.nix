@@ -47,10 +47,11 @@
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.tabs.warnOnClose" = false;
         "browser.warnOnQuit" = false;
+        "browser.translations.automaticallyPopup" = true;
         "zen.view.compact.enable-at-startup" = true;
         "zen.view.compact.hide-toolbar" = true;
-        "zen.view.compact.toolbar-flash-popup" = true;
         "zen.workspaces.continue-where-left-off" = true;
+        "zen.theme.content-element-separation" = 0;
       };
     };
   };
