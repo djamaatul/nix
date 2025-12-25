@@ -1,7 +1,7 @@
 {
   description = "My cross system flake";
 
-  outputs = { nixpkgs, nix-darwin, home-manager, nixvim, ... }:
+  outputs = { nixpkgs, nix-darwin, home-manager, nixvim, ... }@inputs:
     let
 
       username = "djamaatul";
@@ -16,7 +16,10 @@
         home-manager.backupFileExtension = "bak";
         home-manager.sharedModules = [
           nixvim.homeModules.nixvim
+          inputs.zen-browser.homeModules.default
+          inputs.mac-app-util.homeManagerModules.default
         ];
+        home-manager.extraSpecialArgs = { inherit inputs; };
       };
 
     in
@@ -57,6 +60,25 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
+      inputs.nixpkgs.follows = "nixpkgs"; # <= This means mac-app-util will reuse nixpkgs from your flake
+    };
   };
 
 }

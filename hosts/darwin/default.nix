@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -9,15 +9,14 @@
   system.primaryUser = "djamaatul";
 
   imports = [
+    ../../modules/darwin/system.nix
     ../../modules/darwin/homebrew.nix
     ../../modules/darwin/aerospace.nix
-    ../../modules/darwin/system.nix
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
   networking.hostName = "djamaatul";
 
-  #users.knownUsers = [ "djamaatul" ];
   users.users.djamaatul = {
     description = "D. Jama'atul Anbiya";
     home = "/Users/djamaatul";
@@ -27,15 +26,20 @@
 
   time.timeZone = "Asia/Jakarta";
 
-  environment.pathsToLink = [ "/Applications" ];
+  # environment.pathsToLink = [ "/Applications" ];
   environment.systemPackages = with pkgs; [
     alacritty
   ];
+
   environment.systemPath = [
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
   ];
 
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   programs.fish = {
     enable = true;

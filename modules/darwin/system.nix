@@ -12,5 +12,11 @@
     };
 
     screencapture.location = "~/Pictures/screenshots";
+
+    #NSGlobalDomain._HIHideMenuBar = true;
   };
+
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
+
 }

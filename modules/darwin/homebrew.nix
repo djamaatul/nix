@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   homebrew = {
     enable = true;
@@ -8,7 +6,6 @@
     ];
 
     casks = [
-      "zen"
     ];
   };
 }

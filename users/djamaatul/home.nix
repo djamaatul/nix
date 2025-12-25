@@ -19,10 +19,12 @@
   ];
 
   fonts.fontconfig.enable = true;
+  targets.darwin.linkApps.enable = true;
 
   imports = [
     ./programs/git.nix
     ./programs/alacritty.nix
     ./programs/nvim
+    ./programs/browser
   ];
 }
