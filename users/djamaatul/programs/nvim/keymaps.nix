@@ -33,6 +33,13 @@
     }
 
     {
+      mode = "n";
+      key = "<leader><space>";
+      options.silent = true;
+      action = ":noh<CR>";
+    }
+
+    {
       mode = "v";
       key = "J";
       action = ":m '<+2<CR>gv=gv";
@@ -42,17 +49,6 @@
       key = "K";
       action = ":m '<-2<CR>gv=gv";
     }
-    {
-      mode = "n";
-      key = "J";
-      action = "}";
-    }
-    {
-      mode = "n";
-      key = "K";
-      action = "{";
-    }
-
 
     {
       mode = "n";
@@ -140,6 +136,26 @@
       key = "p";
       options.silent = true;
       action = ''"_dP"'';
+    }
+
+    {
+      mode = "t";
+      key = "<esc>";
+      options.silent = true;
+      action = "<c-\\><c-n>";
+    }
+
+    {
+      mode = "";
+      key = "<leader>y";
+      options.silent = true;
+      action = ''"+y'';
+    }
+    {
+      mode = "";
+      key = "<leader>p";
+      options.silent = true;
+      action = ''"+p'';
     }
 
   ];

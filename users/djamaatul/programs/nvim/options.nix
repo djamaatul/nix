@@ -10,6 +10,10 @@
     wrap = false;
     shell = "fish";
     cursorline = true;
+    signcolumn = "yes";
+
+    winborder = "shadow";
+    swapfile = false;
   };
 
   diagnostic.settings = {

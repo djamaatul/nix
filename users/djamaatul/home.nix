@@ -12,6 +12,7 @@
     pkgs.nerd-fonts.fira-code
     fzf
     podman
+    bun
     go
     lua
     lazygit

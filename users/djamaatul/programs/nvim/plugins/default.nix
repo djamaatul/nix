@@ -24,5 +24,6 @@
     ./diagnostics.nix
     ./lazygit.nix
     ./cursor.nix
+    ./noice.nix
   ];
 }

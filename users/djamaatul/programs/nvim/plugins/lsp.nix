@@ -1,10 +1,10 @@
 let
 
-  map = { m, k, a, o ? { silent = true; } }: {
-    mode = m;
-    key = k;
-    action = a;
-    options = o;
+  map = { mode, key, action, options ? { silent = true; } }: {
+    inherit mode;
+    inherit key;
+    inherit action;
+    inherit options;
   };
 in
 {
@@ -42,21 +42,20 @@ in
   '';
 
   keymaps = [
-    { mode = "n"; key = "gd"; action = ":lua vim.lsp.buf.definition()<cr>"; }
-    { mode = "n"; key = "gD"; action = ":lua vim.lsp.buf.declaration()<cr>"; }
-    { mode = "n"; key = "gi"; action = ":lua vim.lsp.buf.implementation()<cr>"; }
-    { mode = "n"; key = "gr"; action = ":lua vim.lsp.buf.references()<cr>"; }
-    { mode = "n"; key = "gt"; action = ":lua vim.lsp.buf.type_definition()<cr>"; }
+    (map { mode = "n"; key = "gd"; action = ":lua vim.lsp.buf.definition()<cr>"; })
+    (map { mode = "n"; key = "gD"; action = ":lua vim.lsp.buf.declaration()<cr>"; })
+    (map { mode = "n"; key = "gi"; action = ":lua vim.lsp.buf.implementation()<cr>"; })
+    (map { mode = "n"; key = "gr"; action = ":lua vim.lsp.buf.references()<cr>"; })
+    (map { mode = "n"; key = "gt"; action = ":lua vim.lsp.buf.type_definition()<cr>"; })
 
-    { mode = "n"; key = "K"; action = ":lua vim.lsp.buf.hover()<cr>"; }
-    { mode = "n"; key = "<C-k>"; action = ":lua vim.lsp.buf.signature_help()<cr>"; }
+    (map { mode = "n"; key = "K"; action = ":lua vim.lsp.buf.hover()<cr>"; })
 
-    { mode = "n"; key = "<leader>ca"; action = ":lua vim.lsp.buf.code_action()<cr>"; }
-    { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename(<cr>)"; }
+    (map { mode = "n"; key = "<leader>ca"; action = ":lua vim.lsp.buf.code_action()<cr>"; })
+    (map { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename(<cr>)"; })
 
-    (map { m = "n"; k = "<leader>cf"; a = ":lua vim.lsp.buf.format({ async = true })<cr>"; })
+    (map { mode = "n"; key = "<leader>cf"; action = ":lua vim.lsp.buf.format({ async = true })<cr>"; })
 
-    (map { m = "v"; k = "<leader>cf"; a = ":lua rangeFormat()<cr>"; })
+    (map { mode = "v"; key = "<leader>cf"; action = ":lua rangeFormat()<cr>"; })
 
   ];
 }
