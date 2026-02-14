@@ -2,10 +2,10 @@
 
 {
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   home.username = "djamaatul";
-  home.homeDirectory = "/Users/djamaatul";
+  home.homeDirectory = "/home/djamaatul";
 
   home.packages = with pkgs; [
     neofetch
@@ -21,7 +21,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-  targets.darwin.linkApps.enable = true;
 
   imports = [
     ./programs/git.nix

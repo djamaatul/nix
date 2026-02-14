@@ -46,4 +46,6 @@
     useBabelfish = true;
   };
 
+  targets.darwin.linkApps.enable = true;
+
 }

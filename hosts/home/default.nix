@@ -1,7 +1,6 @@
-
 {
-
-  networking.hostName = "linux";
-  services.openssh.enable = true;
+  programs = {
+    fish.enable = true;
+  };
 
 }

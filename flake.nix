@@ -3,7 +3,6 @@
 
   outputs = { nixpkgs, nix-darwin, home-manager, nixvim, ... }@inputs:
     let
-
       username = "djamaatul";
 
       home = {
@@ -11,20 +10,22 @@
       };
 
       homeConfigs = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "bak";
-        home-manager.sharedModules = [
-          nixvim.homeModules.nixvim
-          inputs.zen-browser.homeModules.default
-          inputs.mac-app-util.homeManagerModules.default
-        ];
-        home-manager.extraSpecialArgs = { inherit inputs; };
+        "home-manager" = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "bak";
+          sharedModules = [
+            nixvim.homeModules.nixvim
+            inputs.zen-browser.homeModules.default
+            inputs.mac-app-util.homeManagerModules.default
+          ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
-
     in
     {
 
+      # darwin-rebuild switch --flake .
       darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/darwin
@@ -33,6 +34,7 @@
         ];
       };
 
+      # nixos-rebuild switch --flake .
       nixosConfigurations.${username} = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/linux
@@ -41,11 +43,17 @@
         ];
       };
 
+      # nix run nixpkgs#home-manager -- switch --flake .
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {
+          inputs = { inherit (inputs) firefox-addons zen-browser; };
+        };
         modules = [
-          homeConfigs
           ./hosts/home
           ./users/djamaatul/home.nix
+          nixvim.homeModules.nixvim
+          inputs.zen-browser.homeModules.default
         ];
       };
     };
@@ -77,7 +85,7 @@
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
-      inputs.nixpkgs.follows = "nixpkgs"; # <= This means mac-app-util will reuse nixpkgs from your flake
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
