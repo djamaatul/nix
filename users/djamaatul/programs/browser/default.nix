@@ -16,6 +16,7 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
+      
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
@@ -52,6 +53,8 @@
         "zen.view.compact.hide-toolbar" = true;
         "zen.workspaces.continue-where-left-off" = true;
         "zen.theme.content-element-separation" = 0;
+        "layout.css.prefers.color.scheme.content.override" = 0;
+        "ui.systemUsesDarkTheme" = 1;
       };
     };
   };

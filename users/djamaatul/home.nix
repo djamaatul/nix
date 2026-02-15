@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
 
   home.stateVersion = "25.11";
-
-  home.username = "djamaatul";
-  home.homeDirectory = "/home/djamaatul";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
     neofetch

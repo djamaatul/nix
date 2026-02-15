@@ -45,8 +45,13 @@
 
       # nix run nixpkgs#home-manager -- switch --flake .
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = [ inputs.nixgl.overlay ];
+        };
         extraSpecialArgs = {
+          inherit (inputs) nixgl;
+          inherit username;
           inputs = { inherit (inputs) firefox-addons zen-browser; };
         };
         modules = [
@@ -54,6 +59,7 @@
           ./users/djamaatul/home.nix
           nixvim.homeModules.nixvim
           inputs.zen-browser.homeModules.default
+          inputs.dms.homeModules.dank-material-shell
         ];
       };
     };
@@ -85,6 +91,13 @@
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixgl.url = "github:nix-community/nixGL";
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

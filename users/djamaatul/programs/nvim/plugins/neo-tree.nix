@@ -4,7 +4,7 @@
     settings = {
       close_if_last_window = false;
       window = {
-        width = 40;
+        width = 30;
         mappings = {
           l = "open";
         };

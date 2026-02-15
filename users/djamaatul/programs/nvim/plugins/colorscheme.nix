@@ -1,13 +1,13 @@
 {
   plugins.transparent.enable = true;
   colorschemes.vague = {
-    enable = false;
+    enable = true;
     settings = {
       transparent = true;
     };
   };
   colorschemes.kanagawa = {
-    enable = true;
+    enable = false;
     settings = {
       theme = "dragon";
     };
