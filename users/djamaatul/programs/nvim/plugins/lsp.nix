@@ -51,7 +51,7 @@ in
     (map { mode = "n"; key = "K"; action = ":lua vim.lsp.buf.hover()<cr>"; })
 
     (map { mode = "n"; key = "<leader>ca"; action = ":lua vim.lsp.buf.code_action()<cr>"; })
-    (map { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename(<cr>)"; })
+    (map { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename()<cr>"; })
 
     (map { mode = "n"; key = "<leader>cf"; action = ":lua vim.lsp.buf.format({ async = true })<cr>"; })
 

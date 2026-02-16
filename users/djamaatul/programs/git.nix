@@ -16,7 +16,7 @@
       };
       user = {
         email = "djamaatul.anbiya@gmail.com";
-        name = "D. Jamaatul Anbiya";
+        name = "djamaatul";
       };
     };
   };

@@ -1,5 +1,12 @@
 {
-  plugins.notify.enable = true;
+  plugins.notify = {
+
+    enable = true;
+    settings = {
+
+      background_colour = "#000000";
+    };
+  };
   plugins.noice = {
     enable = true;
     settings = {

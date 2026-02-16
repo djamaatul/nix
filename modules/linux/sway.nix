@@ -10,6 +10,9 @@
       blur_xray disable
       blur_passes 2
       blur_radius 2
+
+      for_window [title=".*Picture-in-Picture$"] floating enable, border pixel 1
+      for_window [title="^Pritunl.*"] floating enable, border pixel 1
     '';
 
     config = {
@@ -18,6 +21,7 @@
       terminal = "alacritty";
 
       gaps.inner = 10;
+      window.titlebar = false;
 
       bars = [ ];
 
@@ -48,10 +52,17 @@
           "XF86AudioMute" = "exec dms ipc call audio mute";
         };
 
-      input."type:keyboard" = {
-        xkb_options = "caps:escape";
-        repeat_delay = "200";
-        repeat_rate = "50";
+      input = {
+        "type:touchpad" = {
+          tap = "enabled";
+          dwt = "enabled";
+          natural_scroll = "enable";
+        };
+        "type:keyboard" = {
+          xkb_options = "caps:escape";
+          repeat_delay = "200";
+          repeat_rate = "50";
+        };
       };
     };
   };

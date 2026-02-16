@@ -5,10 +5,10 @@
     enable = true;
     settings = {
       window = {
-        # padding = {
-        #   x = 10;
-        #   y = 10;
-        # };
+        padding = {
+          x = 10;
+          y = 10;
+        };
         dynamic_padding = true;
         decorations = "Buttonless";
         opacity = 0.6;
