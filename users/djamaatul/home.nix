@@ -2,6 +2,8 @@
 
 {
 
+  nixpkgs.config.allowUnfree = true;
+
   home.stateVersion = "25.11";
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -11,12 +13,11 @@
     pkgs.nerd-fonts.fira-code
     fzf
     podman
-    bun
-    go
     lua
     lazygit
     curl
     dbeaver-bin
+    ranger
   ];
 
   fonts.fontconfig.enable = true;

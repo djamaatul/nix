@@ -1,9 +1,15 @@
 {
-  programs.nixvim = { ... }: {
+  programs.nixvim = { pkgs, ... }: {
     enable = true;
 
     viAlias = true;
     vimAlias = true;
+
+    extraPlugins = [
+      pkgs.vimPlugins.text-case-nvim
+    ];
+
+    extraConfigLua = builtins.readFile ./config.lua;
 
     imports = [
       ./options.nix
