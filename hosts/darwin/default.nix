@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, variables, ... }:
 
 {
 
@@ -36,10 +36,7 @@
     "/opt/homebrew/sbin"
   ];
 
-  environment.variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
+  environment.variables = variables;
 
   programs.fish = {
     enable = true;

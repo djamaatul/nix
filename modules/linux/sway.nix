@@ -6,10 +6,12 @@
     checkConfig = false;
 
     extraConfig = ''
-      blur enable
-      blur_xray disable
-      blur_passes 2
-      blur_radius 2
+      # blur enable
+      # blur_xray disable
+      # blur_passes 2
+      # blur_radius 1
+
+      corner_radius 10
 
       for_window [title=".*Picture-in-Picture$"] floating enable, border pixel 1
       for_window [title="^Pritunl.*"] floating enable, border pixel 1
@@ -20,8 +22,41 @@
 
       terminal = "alacritty";
 
-      gaps.inner = 10;
-      window.titlebar = false;
+      gaps = {
+        outer = 20;
+        inner = 40;
+        # smartBorders = "on";
+        # smartGaps = "on";
+      };
+
+      window = {
+        titlebar = false;
+        border = 1;
+      };
+
+      colors = {
+        focused = {
+          border = "#555555";
+          background = "#555555";
+          childBorder = "#555555";
+          indicator = "#555555";
+          text = "#ffffff";
+        };
+        unfocused = {
+          border = "#333333";
+          background = "#333333";
+          childBorder = "#333333";
+          indicator = "#292d2e";
+          text = "#888888";
+        };
+        focusedInactive = {
+          background = "#333333";
+          border = "#333333";
+          childBorder = "#333333";
+          indicator = "#484e50";
+          text = "#ffffff";
+        };
+      };
 
       bars = [ ];
 
@@ -56,7 +91,8 @@
         "type:touchpad" = {
           tap = "enabled";
           dwt = "enabled";
-          natural_scroll = "enable";
+          natural_scroll = "enabled";
+          drag_lock = "disable";
         };
         "type:keyboard" = {
           xkb_options = "caps:escape";

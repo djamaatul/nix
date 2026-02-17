@@ -22,11 +22,20 @@
           extraSpecialArgs = { inherit inputs; };
         };
       };
+
+      variables = {
+        TMPDIR = "/nix/tmp";
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
     in
     {
 
       # darwin-rebuild switch --flake .
       darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit variables;
+        };
         modules = [
           ./hosts/darwin
           home-manager.darwinModules.home-manager
@@ -37,7 +46,7 @@
       # nixos-rebuild switch --flake .
       nixosConfigurations.${username} = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/linux
+          ./hosts/home
           home-manager.nixosModules.home-manager
           (nixpkgs.lib.recursiveUpdate home homeConfigs)
         ];
@@ -52,6 +61,7 @@
         extraSpecialArgs = {
           inherit (inputs) nixgl;
           inherit username;
+          inherit variables;
           inputs = { inherit (inputs) firefox-addons zen-browser; };
         };
         modules = [

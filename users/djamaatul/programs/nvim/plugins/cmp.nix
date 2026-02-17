@@ -4,6 +4,8 @@
       enable = true;
       autoEnableSources = true;
       settings = {
+        preselect = "cmp.PreselectMode.None";
+        completion.autocomplete = false;
         mapping = {
           "<c-n>" = "cmp.mapping.select_next_item()";
           "<c-p>" = "cmp.mapping.select_prev_item()";

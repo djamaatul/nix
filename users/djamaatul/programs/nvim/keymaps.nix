@@ -137,20 +137,13 @@
       options.silent = true;
       action = ''"_dP"'';
     }
-
-    {
-      mode = "t";
-      key = "<esc>";
-      options.silent = true;
-      action = "<c-\\><c-n>";
-    }
-
     {
       mode = "";
       key = "<leader>y";
       options.silent = true;
       action = ''"+y'';
     }
+
     {
       mode = "";
       key = "<leader>p";
