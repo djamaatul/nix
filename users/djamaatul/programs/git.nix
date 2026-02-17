@@ -18,6 +18,7 @@
         email = "djamaatul.anbiya@gmail.com";
         name = "djamaatul";
       };
+      credential.helper = "store";
     };
   };
 }
