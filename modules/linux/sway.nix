@@ -23,8 +23,8 @@
       terminal = "alacritty";
 
       gaps = {
-        outer = 20;
-        inner = 40;
+        outer = 10;
+        inner = 15;
         # smartBorders = "on";
         # smartGaps = "on";
       };
