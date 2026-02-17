@@ -27,6 +27,7 @@
   imports = [
     ./programs/git.nix
     ./programs/alacritty.nix
+    #./programs/android-emulator.nix
     ./programs/nvim
     ./programs/browser
   ];
