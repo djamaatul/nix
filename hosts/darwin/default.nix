@@ -42,7 +42,4 @@
     enable = true;
     useBabelfish = true;
   };
-
-  targets.darwin.linkApps.enable = true;
-
 }

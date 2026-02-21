@@ -6,7 +6,7 @@
 
   home.stateVersion = "25.11";
   home.username = username;
-  home.homeDirectory = "/home/${username}";
+  home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
   home.sessionVariables = variables;
 

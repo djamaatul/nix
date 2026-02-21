@@ -9,6 +9,11 @@
         home-manager.users.${username} = ./users/djamaatul/home.nix;
       };
 
+      variables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
+
       homeConfigs = {
         "home-manager" = {
           useGlobalPkgs = true;
@@ -19,14 +24,8 @@
             inputs.zen-browser.homeModules.default
             inputs.mac-app-util.homeManagerModules.default
           ];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; inherit username; inherit variables; };
         };
-      };
-
-      variables = {
-        TMPDIR = "/nix/tmp";
-        EDITOR = "nvim";
-        VISUAL = "nvim";
       };
     in
     {
