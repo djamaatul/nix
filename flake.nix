@@ -53,25 +53,31 @@
       };
 
       # nix run nixpkgs#home-manager -- switch --flake .
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          overlays = [ inputs.nixgl.overlay ];
+      homeConfigurations.${username} =
+        let
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ inputs.nixgl.overlay ];
+          };
+          homeVariables = (variables // { SHELL = "${pkgs.fish}/bin/fish"; });
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs =
+            {
+              inherit (inputs) nixgl;
+              inherit username;
+              variables = homeVariables;
+              inputs = { inherit (inputs) firefox-addons zen-browser; };
+            };
+          modules = [
+            ./hosts/home
+            ./users/djamaatul/home.nix
+            nixvim.homeModules.nixvim
+            inputs.zen-browser.homeModules.default
+            inputs.dms.homeModules.dank-material-shell
+          ];
         };
-        extraSpecialArgs = {
-          inherit (inputs) nixgl;
-          inherit username;
-          inherit variables;
-          inputs = { inherit (inputs) firefox-addons zen-browser; };
-        };
-        modules = [
-          ./hosts/home
-          ./users/djamaatul/home.nix
-          nixvim.homeModules.nixvim
-          inputs.zen-browser.homeModules.default
-          inputs.dms.homeModules.dank-material-shell
-        ];
-      };
     };
 
   inputs = {

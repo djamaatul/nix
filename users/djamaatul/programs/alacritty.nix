@@ -11,7 +11,7 @@
         };
         dynamic_padding = true;
         decorations = "Buttonless";
-        opacity = 0.4;
+        opacity = 0.6;
         # blur = true;
         startup_mode = "Maximized";
         dynamic_title = true;

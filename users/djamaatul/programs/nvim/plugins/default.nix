@@ -2,7 +2,6 @@
   plugins = {
     web-devicons.enable = true;
     treesitter.enable = true;
-    visual-multi.enable = true;
     smear-cursor.enable = true;
     autoclose.enable = true;
     rest.enable = true;
@@ -25,5 +24,6 @@
     ./lazygit.nix
     ./cursor.nix
     ./noice.nix
+    ./visual-multi.nix
   ];
 }

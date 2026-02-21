@@ -17,6 +17,7 @@ in
         jsonls.enable = true;
         lua_ls.enable = true;
         gopls.enable = true;
+        dartls.enable = true;
         nixd = {
           enable = true;
           settings = {
