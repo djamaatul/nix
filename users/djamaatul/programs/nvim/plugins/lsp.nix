@@ -18,6 +18,7 @@ in
         lua_ls.enable = true;
         gopls.enable = true;
         dartls.enable = true;
+        tailwindcss.enable = true;
         nixd = {
           enable = true;
           settings = {

@@ -14,6 +14,7 @@
 
     winborder = "shadow";
     swapfile = false;
+    undofile = true;
   };
 
   diagnostic.settings = {

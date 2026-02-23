@@ -3,13 +3,14 @@
   colorschemes.vague = {
     enable = false;
     settings = {
-      transparent = true;
+      transparent = false;
     };
   };
   colorschemes.kanagawa = {
-    enable = true;
+    enable = false;
     settings = {
       theme = "dragon";
     };
   };
+  colorschemes.onedark.enable = true;
 }
