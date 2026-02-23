@@ -6,12 +6,12 @@
     checkConfig = false;
 
     extraConfig = ''
-      # blur enable
-      # blur_xray disable
-      # blur_passes 2
-      # blur_radius 1
+      blur enable
+      blur_xray disable
+      blur_passes 2
+      blur_radius 1
 
-      corner_radius 10
+      # corner_radius 10
 
       for_window [title=".*Picture-in-Picture$"] floating enable, border pixel 1
       for_window [title="^Pritunl.*"] floating enable, border pixel 1
@@ -23,8 +23,8 @@
       terminal = "alacritty";
 
       gaps = {
-        outer = 10;
-        inner = 15;
+        outer = 5;
+        inner = 10;
         # smartBorders = "on";
         # smartGaps = "on";
       };
@@ -61,12 +61,12 @@
       bars = [ ];
 
       startup = [
-        {
-          command = "dms run";
-        }
-        {
-          command = "wl-paste --watch cliphist store";
-        }
+        # {
+        #   command = "dms run";
+        # }
+        # {
+        #   command = "wl-paste --watch cliphist store";
+        # }
       ];
 
       keybindings =
