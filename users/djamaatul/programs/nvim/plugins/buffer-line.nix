@@ -56,5 +56,27 @@
      options.silent = true;
      action = ":Bdelete<cr>";
    }
+  {
+     mode = "n";
+     key = "<leader>w";
+     options.silent = true;
+     action = ":w<cr>";
+   }
+   {
+     mode = "n";
+     key = "<c-w>";
+     options = {
+      silent = true;
+      nowait = true;
+     };
+     action = ":Bdelete<cr>";
+   }
+   {
+      mode = "n";
+      key = "<c-t>";
+      options.silent = true;
+      action = ":enew<cr>";
+   }
+
   ];
 }

@@ -1,6 +1,7 @@
 {
   plugins.telescope = {
     enable = true;
+    extensions.ui-select.enable = true;
   };
   keymaps = [
     {
@@ -19,12 +20,6 @@
       mode = "n";
       key = "<leader>fb";
       action = "<cmd>Telescope buffers<CR>";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<leader>fh";
-      action = "<cmd>Telescope help tags<CR>";
       options.silent = true;
     }
   ];
