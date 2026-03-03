@@ -1,5 +1,5 @@
 {
   plugins.tiny-inline-diagnostic = {
-    enable = true;
+    enable = false;
   };
 }

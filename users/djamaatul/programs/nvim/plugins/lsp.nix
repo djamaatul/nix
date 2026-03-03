@@ -19,6 +19,7 @@ in
         gopls.enable = true;
         dartls.enable = true;
         tailwindcss.enable = true;
+        csharp_ls.enable = true;
         nixd = {
           enable = true;
           settings = {
@@ -50,7 +51,7 @@ in
     (map { mode = "n"; key = "gr"; action = ":lua vim.lsp.buf.references()<cr>"; })
     (map { mode = "n"; key = "gt"; action = ":lua vim.lsp.buf.type_definition()<cr>"; })
 
-    (map { mode = "n"; key = "K"; action = ":lua vim.lsp.buf.hover()<cr>"; })
+    (map { mode = "n"; key = "<s-k>"; action = ":lua vim.lsp.buf.hover()<cr>"; })
 
     (map { mode = "n"; key = "<leader>ca"; action = ":lua vim.lsp.buf.code_action()<cr>"; })
     (map { mode = "n"; key = "<leader>rn"; action = ":lua vim.lsp.buf.rename()<cr>"; })

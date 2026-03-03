@@ -29,5 +29,6 @@
     ./noice.nix
     ./visual-multi.nix
     ./toggleterm.nix
+    ./fold.nix
   ];
 }

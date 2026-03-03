@@ -31,6 +31,12 @@
       options.silent = true;
       action = ":bnext<CR>";
     }
+    {
+      mode = "n";
+      key = "<c-S-tab>";
+      options.silent = true;
+      action = ":bprevious<CR>";
+    }
 
     {
       mode = "n";
@@ -41,12 +47,12 @@
 
     {
       mode = "v";
-      key = "J";
+      key = "<s-j>";
       action = ":m '<+2<CR>gv=gv";
     }
     {
       mode = "v";
-      key = "K";
+      key = "<s-k>";
       action = ":m '<-2<CR>gv=gv";
     }
 
@@ -131,6 +137,7 @@
       action = ''"_c'';
     }
 
+
     {
       mode = "x";
       key = "p";
@@ -139,14 +146,14 @@
     }
     {
       mode = "";
-      key = "<leader>y";
+      key = "<c-s-c>";
       options.silent = true;
       action = ''"+y'';
     }
 
     {
       mode = "";
-      key = "<leader>p";
+      key = "<c-s-v>";
       options.silent = true;
       action = ''"+p'';
     }
