@@ -22,5 +22,11 @@
       action = "<cmd>Telescope buffers<CR>";
       options.silent = true;
     }
+    {
+      mode = "n";
+      key = "<leader>fd";
+      action = "<cmd>Telescope diagnostics<CR>";
+      options.silent = true;
+    }
   ];
 }

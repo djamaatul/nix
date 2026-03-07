@@ -1,16 +1,22 @@
 {
-  plugins.transparent.enable = true;
-  colorschemes.vague = {
-    enable = false;
+  plugins.transparent = {
+    enable = true;
     settings = {
-      transparent = false;
+      exclude_groups = [ "CursorLine" "CursorLineNr" ];
     };
   };
   colorschemes.kanagawa = {
-    enable = false;
+    enable = true;
     settings = {
-      theme = "dragon";
+      theme = "wave";
+      background = {
+        dark = "dragon";
+      };
+      colors = {
+        theme = {
+          all = { ui = { bg_gutter = "none"; }; };
+        };
+      };
     };
   };
-  colorschemes.onedark.enable = true;
 }

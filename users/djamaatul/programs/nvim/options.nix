@@ -23,4 +23,8 @@
     };
     virtual_text = true;
   };
+
+  globals = {
+    loaded_netrwPlugin = 0;
+  };
 }

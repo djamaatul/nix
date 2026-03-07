@@ -146,14 +146,14 @@
     }
     {
       mode = "";
-      key = "<c-s-c>";
+      key = "<c-y>";
       options.silent = true;
       action = ''"+y'';
     }
 
     {
       mode = "";
-      key = "<c-s-v>";
+      key = "<c-p>";
       options.silent = true;
       action = ''"+p'';
     }

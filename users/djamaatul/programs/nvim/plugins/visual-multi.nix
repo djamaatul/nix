@@ -7,17 +7,4 @@
       default_mappings = 0;
     };
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<C-d>";
-      action = "<Plug>(VM-Find-Under)";
-    }
-    {
-      mode = "n";
-      key = "<C-d>";
-      action = "<Plug>(VM-Find-Under)";
-    }
-  ];
 }
