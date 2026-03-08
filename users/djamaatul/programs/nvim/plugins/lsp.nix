@@ -45,11 +45,10 @@ in
   '';
 
   keymaps = [
-    (map { mode = "n"; key = "gd"; action = ":lua vim.lsp.buf.definition()<cr>"; })
-    (map { mode = "n"; key = "gD"; action = ":lua vim.lsp.buf.declaration()<cr>"; })
-    (map { mode = "n"; key = "gi"; action = ":lua vim.lsp.buf.implementation()<cr>"; })
-    (map { mode = "n"; key = "gr"; action = ":lua vim.lsp.buf.references()<cr>"; })
-    (map { mode = "n"; key = "gt"; action = ":lua vim.lsp.buf.type_definition()<cr>"; })
+    (map { mode = "n"; key = "gd"; action = ":Telescope lsp_definitions<cr>"; })
+    (map { mode = "n"; key = "gi"; action = ":Telescope lsp_implementations<cr>"; })
+    (map { mode = "n"; key = "gr"; action = ":Telescope lsp_references<cr>"; })
+    (map { mode = "n"; key = "gt"; action = ":Telescope lsp_type_definitions<cr>"; })
 
     (map { mode = "n"; key = "<s-k>"; action = ":lua vim.lsp.buf.hover()<cr>"; })
 

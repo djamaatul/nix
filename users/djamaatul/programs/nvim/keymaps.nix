@@ -48,7 +48,7 @@
     {
       mode = "v";
       key = "<s-j>";
-      action = ":m '<+2<CR>gv=gv";
+      action = ":m '<+1<CR>gv=gv";
     }
     {
       mode = "v";
@@ -92,6 +92,13 @@
       mode = "n";
       key = "x";
       action = "d";
+      options.noremap = false;
+    }
+
+    {
+      mode = "n";
+      key = "X";
+      action = "D";
       options.noremap = false;
     }
 

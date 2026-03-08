@@ -3,7 +3,6 @@
     web-devicons.enable = true;
     treesitter.enable = true;
     smear-cursor.enable = true;
-    nvim-autopairs.enable = true;
     rest.enable = true;
     flutter-tools.enable = true;
     colorizer.enable = true;
@@ -30,5 +29,6 @@
     ./visual-multi.nix
     ./toggleterm.nix
     ./fold.nix
+    ./autopairs.nix
   ];
 }
