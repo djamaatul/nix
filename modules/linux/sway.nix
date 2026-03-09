@@ -1,5 +1,102 @@
 { config, pkgs, lib, ... }: {
 
+  home.packages = with pkgs; [ swaybg swayidle ];
+
+  services.swayidle = {
+    enable = true;
+    systemdTarget = "graphical-session.target";
+    timeouts = [
+      {
+        timeout = 200;
+        command = "${pkgs.swayfx}/bin/swaymsg 'output * power off'";
+        resumeCommand = "${pkgs.swayfx}/bin/swaymsg 'output * power on'";
+      }
+      {
+        timeout = 600;
+        command = "systemctl suspend";
+      }
+    ];
+  };
+
+  programs.waybar = {
+    enable = true;
+    settings = [
+      {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "eDP-1"
+          "HDMI-A-1"
+        ];
+
+        margin-left = 15;
+        margin-right = 15;
+        margin-top = 15;
+
+        modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "battery" ];
+
+        battery = {
+          format = "battery: {capacity}%";
+        };
+
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format = "{:%F %T}";
+          interval = 1;
+        };
+
+        "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+        };
+      }
+    ];
+    style = ''
+      * {
+        border: none;
+      }
+      
+      #waybar {
+        background-color: rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.5);
+      }
+
+      #window {
+        color: white;
+      }
+
+      #battery {
+        margin: 10px;
+        color: white;
+      }
+
+      #clock {
+        color: white;
+      }
+
+      #workspaces {
+        margin: 5px 10px;
+        color: white;
+      }
+
+      #workspaces button {
+        border: 1px solid white;
+        border-radius: 0px;
+        color: white;
+        min-width: 0;
+        padding: 0px;
+        margin: 10px 5px;
+      }
+
+      #workspaces button.focused {
+        background-color: white;
+        color: black;
+      }
+    '';
+  };
   wayland.windowManager.sway = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.swayfx;
@@ -11,7 +108,7 @@
       blur_passes 2
       blur_radius 1
 
-      # corner_radius 10
+      #corner_radius 10
 
       for_window [title=".*Picture-in-Picture$"] floating enable, border pixel 1
       for_window [title="^Pritunl.*"] floating enable, border pixel 1
@@ -58,15 +155,24 @@
         };
       };
 
-      bars = [ ];
+      bars = [
+        # {
+        #   command = "waybar";
+        # }
+      ];
 
       startup = [
         # {
-        #   command = "dms run";
+        #   command = "sh ${./swaybg.sh}";
+        #   always = true;
         # }
-        # {
-        #   command = "wl-paste --watch cliphist store";
-        # }
+
+        {
+          command = "dms run";
+        }
+        {
+          command = "wl-paste --watch cliphist store";
+        }
       ];
 
       keybindings =
