@@ -28,5 +28,11 @@
       action = "<cmd>Telescope diagnostics<CR>";
       options.silent = true;
     }
+    {
+      mode = "n";
+      key = "<leader>dd";
+      action = "<cmd>Telescope diagnostics bufnr=0<CR>";
+      options.silent = true;
+    }
   ];
 }

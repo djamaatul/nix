@@ -30,5 +30,6 @@
     ./toggleterm.nix
     ./fold.nix
     ./autopairs.nix
+    ./treesitter-context.nix
   ];
 }
