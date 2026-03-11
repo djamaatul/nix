@@ -21,7 +21,7 @@
         normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
         bold   = { family = "FiraCode Nerd Font"; style = "Bold"; };
         italic = { family = "FiraCode Nerd Font"; style = "Italic"; };
-        size = 13.0;
+        size = 12.0;
       };
     };
     settings = {

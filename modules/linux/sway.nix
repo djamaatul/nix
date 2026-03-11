@@ -110,7 +110,7 @@
 
       #corner_radius 10
 
-      for_window [title=".*Picture-in-Picture$"] floating enable, border pixel 1
+      for_window [title=".*Picture-in-Picture$"] floating enable, sticky enable, border pixel 1
       for_window [title="^Pritunl.*"] floating enable, border pixel 1
     '';
 

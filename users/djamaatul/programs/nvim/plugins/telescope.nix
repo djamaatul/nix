@@ -25,7 +25,7 @@
     {
       mode = "n";
       key = "<leader>fd";
-      action = "<cmd>Telescope diagnostics<CR>";
+      action = "<cmd>lua require('telescope.builtin').diagnostics({ sort_by = 'severity' })<CR>";
       options.silent = true;
     }
     {

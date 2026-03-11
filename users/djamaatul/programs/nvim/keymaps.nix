@@ -1,5 +1,4 @@
-{
-  globals = {
+{ globals = {
     mapleader = " ";
     maplocalleader = " ";
   };
@@ -151,6 +150,7 @@
       options.silent = true;
       action = ''"_dP"'';
     }
+
     {
       mode = "";
       key = "<c-y>";
@@ -163,6 +163,12 @@
       key = "<c-p>";
       options.silent = true;
       action = ''"+p'';
+    }
+    {
+      mode = "i";
+      key = "<c-p>";
+      options.silent = true;
+      action = "<C-r>+";
     }
 
   ];
