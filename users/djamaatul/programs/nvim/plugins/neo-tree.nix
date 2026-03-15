@@ -3,11 +3,35 @@
     enable = true;
     settings = {
       close_if_last_window = true;
+      sources = [
+        "filesystem"
+        "git_status"
+        "document_symbols"
+      ];
+      source_selector = {
+        winbar = true;
+        statusline = false;
+        sources = [
+          { source = "filesystem"; }
+          { source = "git_status"; }
+          { source = "document_symbols"; }
+        ];
+      };
+      filesystem = {
+        filtered_items = {
+          visible = true;
+          hide_dotfiles = false;
+          hide_gitignored = false;
+          never_show = [ ".git" ];
+        };
+      };
       window = {
         width = 30;
         mappings = {
           l = "open";
           h = "close_node";
+          H = "prev_source";
+          L = "next_source";
         };
       };
     };
@@ -28,7 +52,13 @@
       mode = "n";
       key = "<leader>e";
       options.silent = true;
-      action = ":Neotree reveal toggle<CR>";
+      action = ":Neotree left reveal toggle<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>fe";
+      options.silent = true;
+      action = ":Neotree float reveal<CR>";
     }
     {
       mode = "n";

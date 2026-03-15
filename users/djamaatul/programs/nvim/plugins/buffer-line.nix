@@ -10,8 +10,9 @@
         offsets = [
           {
             filetype = "neo-tree";
-            highlight = "Directory";
-            text_align = "left";
+            text = "Neo-tree";
+            highlight = "BufferLineBackground";
+            text_align = "center";
           }
         ];
       };

@@ -1,7 +1,20 @@
 {
   plugins.telescope = {
     enable = true;
-    extensions.ui-select.enable = true;
+    extensions =
+      {
+        ui-select.enable = true;
+        fzf-native.enable = true;
+      };
+    settings = {
+      defaults = {
+        results_title = false;
+        sorting_strategy = "ascending";
+        layout_config = {
+          prompt_position = "top";
+        };
+      };
+    };
   };
   keymaps = [
     {
