@@ -13,18 +13,15 @@
       DisableFirefoxAccount = true;
       DisablePocket = true;
       DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
+      DontCheckDefaultBrowser = false;
       NoDefaultBookmarks = true;
-      OfferToSaveLogins = false;
-      
+      OfferToSaveLogins = true;
+
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
-      };
-      Extensions = {
-        Install = [ "https://addons.mozilla.org/firefox/downloads/file/4286113/simple_translate-3.0.0.xpi" ];
       };
       ExtensionSettings = {
         "3rdparty" = {
@@ -40,6 +37,7 @@
         packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           privacy-badger
           ublock-origin
+          simple-translate
         ];
       };
 
