@@ -3,19 +3,14 @@
 
   outputs = { nixpkgs, nix-darwin, home-manager, nixvim, ... }@inputs:
     let
-      username = "djamaatul";
-
-      home = {
-        home-manager.users.${username} = ./users/djamaatul/home.nix;
-      };
-
       variables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
       };
 
-      homeConfigs = {
-        "home-manager" = {
+      hmModule = {
+        home-manager = {
+          users.djamaatul.imports = [ ./users/djamaatul/home.nix ];
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "bak";
@@ -23,60 +18,62 @@
             nixvim.homeModules.nixvim
             inputs.zen-browser.homeModules.default
             inputs.mac-app-util.homeManagerModules.default
+            inputs.dms.homeModules.dank-material-shell
           ];
-          extraSpecialArgs = { inherit inputs; inherit username; inherit variables; };
+          extraSpecialArgs = { inherit inputs; inherit variables; };
         };
       };
-    in
-    {
 
-      # darwin-rebuild switch --flake .
-      darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit variables;
-        };
-        modules = [
-          ./hosts/darwin
-          home-manager.darwinModules.home-manager
-          (nixpkgs.lib.recursiveUpdate home homeConfigs)
-        ];
-      };
-
-      # nixos-rebuild switch --flake .
-      nixosConfigurations.${username} = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/home
-          home-manager.nixosModules.home-manager
-          (nixpkgs.lib.recursiveUpdate home homeConfigs)
-        ];
-      };
-
-      # nix run nixpkgs#home-manager -- switch --flake .
-      homeConfigurations.${username} =
+      mkStandaloneHM = host: extraModules:
         let
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [ inputs.nixgl.overlay ];
           };
-          homeVariables = (variables // { SHELL = "${pkgs.fish}/bin/fish"; });
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs =
-            {
-              inherit (inputs) nixgl;
-              inherit username;
-              variables = homeVariables;
-              inputs = { inherit (inputs) firefox-addons zen-browser; };
-            };
+          extraSpecialArgs = {
+            inherit (inputs) nixgl;
+            inherit variables;
+            inputs = { inherit (inputs) firefox-addons zen-browser; };
+          };
           modules = [
-            ./hosts/home
+            host
             ./users/djamaatul/home.nix
             nixvim.homeModules.nixvim
             inputs.zen-browser.homeModules.default
-            inputs.dms.homeModules.dank-material-shell
-          ];
+          ] ++ extraModules;
         };
+    in
+    {
+      # darwin-rebuild switch --flake .
+      darwinConfigurations.default = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit variables; };
+        modules = [
+          ./hosts/darwin
+          home-manager.darwinModules.home-manager
+          hmModule
+        ];
+      };
+
+      # nixos-rebuild switch --flake .
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos
+          home-manager.nixosModules.home-manager
+          hmModule
+        ];
+      };
+
+      # nix run nixpkgs#home-manager -- switch --flake .
+      homeConfigurations.default = mkStandaloneHM ./hosts/home [
+        inputs.dms.homeModules.dank-material-shell
+      ];
+
+      # nix run nixpkgs#home-manager -- switch --flake .#debian
+      homeConfigurations.debian = mkStandaloneHM ./hosts/debian [ ];
     };
 
   inputs = {

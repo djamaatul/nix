@@ -25,8 +25,6 @@
 
       background_opacity = 0.80;
       background_blur = 20;
-
     };
   };
-
 }

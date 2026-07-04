@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ name, email }:
 
-{
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     settings = {
@@ -15,8 +15,8 @@
         editor = "${pkgs.neovim}/bin/nvim";
       };
       user = {
-        email = "djamaatul.anbiya@gmail.com";
-        name = "djamaatul";
+        inherit name;
+        inherit email;
       };
       credential.helper = "store";
     };

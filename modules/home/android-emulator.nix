@@ -23,4 +23,3 @@ in
     pkgs.androidenv.androidPkgs.platform-tools
   ];
 }
-

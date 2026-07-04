@@ -122,8 +122,6 @@
       gaps = {
         outer = 5;
         inner = 10;
-        # smartBorders = "on";
-        # smartGaps = "on";
       };
 
       window = {
@@ -156,17 +154,9 @@
       };
 
       bars = [
-        # {
-        #   command = "waybar";
-        # }
       ];
 
       startup = [
-        # {
-        #   command = "sh ${./swaybg.sh}";
-        #   always = true;
-        # }
-
         {
           command = "dms run";
         }

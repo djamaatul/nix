@@ -1,34 +1,27 @@
-{ pkgs, username, variables, ... }:
+{ pkgs, ... }:
+let
+  username = "djamaatul";
 
+  git = import ../../modules/home/git.nix {
+    name = "djamaatul";
+    email = "djamaatul.anbiya@gmail.com";
+  };
+in
 {
-
   nixpkgs.config.allowUnfree = true;
 
-  home.stateVersion = "25.11";
   home.username = username;
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
-  home.sessionVariables = variables;
-
   home.packages = with pkgs; [
-    neofetch
-    pkgs.nerd-fonts.fira-code
-    fzf
     podman
-    lua
-    lazygit
-    curl
     dbeaver-bin
-    ranger
   ];
 
-  fonts.fontconfig.enable = true;
-
   imports = [
-    ./programs/git.nix
-    ./programs/alacritty.nix
-    #./programs/android-emulator.nix
-    ./programs/nvim
-    ./programs/browser
+    ../../modules/home/core.nix
+    git
+    ../../modules/home/browser
+    #../../modules/home/android-emulator.nix
   ];
 }

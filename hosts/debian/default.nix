@@ -1,11 +1,7 @@
 { nixgl, ... }: {
-  programs.fish.enable = true;
-
   targets.genericLinux.nixGL = { packages = nixgl.packages; };
 
   imports = [
-    ../../modules/home/sway.nix
-    ../../modules/home/dms.nix
     ../../modules/home/system.nix
   ];
 }

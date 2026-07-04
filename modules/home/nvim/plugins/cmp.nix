@@ -4,7 +4,6 @@
       enable = true;
       settings = {
         preselect = "cmp.PreselectMode.None";
-        # completion.autocomplete = false;
         mapping = {
           "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-p>" = "cmp.mapping.select_prev_item()";
