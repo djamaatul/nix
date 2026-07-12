@@ -74,5 +74,12 @@
       action = ":enew<cr>";
     }
 
+    {
+      mode = "n";
+      key = "<c-s-t>";
+      options.silent = true;
+      action = ":e #<cr>";
+    }
+
   ];
 }
