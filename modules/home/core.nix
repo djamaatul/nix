@@ -10,13 +10,13 @@
     lazygit
     curl
     ranger
+    ripgrep
   ];
 
   fonts.fontconfig.enable = true;
 
   imports = [
     ./alacritty.nix
-    ./kitty.nix
     ./fish.nix
     ./nvim
   ];

@@ -31,5 +31,6 @@
     ./fold.nix
     ./autopairs.nix
     ./treesitter-context.nix
+    ./opencode.nix
   ];
 }
