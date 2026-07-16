@@ -3,15 +3,20 @@
     enable = true;
     settings = {
       auto_reload = true;
-      port = 4096;
     };
   };
 
   extraConfigLua = ''
     local Terminal = require("toggleterm.terminal").Terminal
 
+    local port = 40000 + (vim.fn.getpid() % 10000)
+
+    vim.g.opencode_opts = {
+      port = port
+    }
+
     OpenCodeTerm = Terminal:new({
-        cmd = "opencode --port 4096",
+       cmd = string.format("opencode --port %s", port),
         direction = "float",
         close_on_exit = false,
         hidden = true,
