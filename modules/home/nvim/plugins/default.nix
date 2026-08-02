@@ -2,7 +2,6 @@
   plugins = {
     web-devicons.enable = true;
     treesitter.enable = true;
-    smear-cursor.enable = true;
     rest.enable = true;
     flutter-tools.enable = true;
     colorizer.enable = true;

@@ -8,7 +8,7 @@
         VISUAL = "nvim";
       };
 
-      hmModule = {
+      hmModule = extraSharedModules: {
         home-manager = {
           users.djamaatul.imports = [ ./users/djamaatul/home.nix ];
           useGlobalPkgs = true;
@@ -17,9 +17,7 @@
           sharedModules = [
             nixvim.homeModules.nixvim
             inputs.zen-browser.homeModules.default
-            inputs.mac-app-util.homeManagerModules.default
-            inputs.dms.homeModules.dank-material-shell
-          ];
+          ] ++ extraSharedModules;
           extraSpecialArgs = { inherit inputs; inherit variables; };
         };
       };
@@ -53,7 +51,7 @@
         modules = [
           ./hosts/darwin
           home-manager.darwinModules.home-manager
-          hmModule
+          (hmModule [ inputs.mac-app-util.homeManagerModules.default ])
         ];
       };
 
@@ -63,7 +61,9 @@
         modules = [
           ./hosts/nixos
           home-manager.nixosModules.home-manager
-          hmModule
+          (hmModule [
+            inputs.dms.homeModules.dank-material-shell
+          ])
         ];
       };
 

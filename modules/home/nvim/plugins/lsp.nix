@@ -19,7 +19,7 @@ in
         gopls.enable = true;
         dartls.enable = true;
         tailwindcss.enable = true;
-        csharp_ls.enable = true;
+        # csharp_ls.enable = true;
         nixd = {
           enable = true;
           settings = {

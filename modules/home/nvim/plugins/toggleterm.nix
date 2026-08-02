@@ -6,6 +6,7 @@
       start_in_insert = true;
       close_on_exit = true;
       persist_mode = false;
+      shade_terminals = false;
     };
   };
 

@@ -12,6 +12,7 @@
         decorations = "none";
         opacity = 0.6;
         startup_mode = "Maximized";
+        blur = true;
       };
 
       font = {
