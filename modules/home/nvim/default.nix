@@ -2,6 +2,8 @@
   programs.nixvim = { pkgs, ... }: {
     enable = true;
 
+    nixpkgs.useGlobalPackages = true;
+
     viAlias = true;
     vimAlias = true;
 

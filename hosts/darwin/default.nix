@@ -27,9 +27,6 @@
   time.timeZone = "Asia/Jakarta";
 
   # environment.pathsToLink = [ "/Applications" ];
-  environment.systemPackages = with pkgs; [
-    alacritty
-  ];
 
   environment.variables = variables;
 

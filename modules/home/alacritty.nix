@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   programs.alacritty = {
     enable = true;
 
@@ -24,7 +24,7 @@
       };
 
       terminal.shell = {
-        program = "fish";
+        program = "${pkgs.fish}/bin/fish";
       };
     };
   };

@@ -11,7 +11,7 @@
       hmModule = extraSharedModules: {
         home-manager = {
           users.djamaatul.imports = [ ./users/djamaatul/home.nix ];
-          useGlobalPkgs = true;
+          # useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "bak";
           sharedModules = [
@@ -51,6 +51,7 @@
         modules = [
           ./hosts/darwin
           home-manager.darwinModules.home-manager
+          inputs.mac-app-util.darwinModules.default
           (hmModule [ inputs.mac-app-util.homeManagerModules.default ])
         ];
       };
@@ -112,6 +113,8 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opencode.url = "github:dan-online/opencode-nix";
   };
 
 }

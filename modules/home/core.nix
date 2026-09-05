@@ -1,7 +1,8 @@
-{ variables, pkgs, ... }: {
+{ variables, pkgs, inputs, ... }: {
   home.stateVersion = "25.11";
   home.sessionVariables = variables;
 
+  nixpkgs.overlays = [ inputs.opencode.overlays.default ];
   home.packages = with pkgs; [
     neofetch
     pkgs.nerd-fonts.fira-code
@@ -11,6 +12,7 @@
     curl
     ranger
     ripgrep
+    opencode
   ];
 
   fonts.fontconfig.enable = true;
