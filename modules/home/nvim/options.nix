@@ -7,7 +7,7 @@
     tabstop = 2;
     shiftwidth = 2;
     expandtab = true;
-    wrap = false;
+    wrap = true;
     shell = "fish";
     cursorline = true;
     signcolumn = "yes";

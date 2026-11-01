@@ -5,6 +5,16 @@
 
   keymaps = [
     {
+      mode = [ "n" "x" ];
+      key = "j";
+      action = "gj";
+    }
+    {
+      mode = [ "n" "x" ];
+      key = "k";
+      action = "gk";
+    }
+    {
       mode = "n";
       key = "<c-h>";
       action = "<c-w>h";

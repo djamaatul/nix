@@ -22,6 +22,5 @@ in
     ../../modules/home/core.nix
     git
     ../../modules/home/browser
-    #../../modules/home/android-emulator.nix
   ];
 }

@@ -19,7 +19,13 @@ in
         gopls.enable = true;
         dartls.enable = true;
         tailwindcss.enable = true;
-        # csharp_ls.enable = true;
+        # ltex = {
+        #   enable = true;
+        #   settings = {
+        #     load_langs = [ "en-US" "id-ID" ];
+        #   };
+        # };
+        csharp_ls.enable = true;
         nixd = {
           enable = true;
           settings = {

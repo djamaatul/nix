@@ -26,7 +26,10 @@
         let
           pkgs = import nixpkgs {
             system = "x86_64-linux";
-            overlays = [ inputs.nixgl.overlay ];
+            overlays = [
+              inputs.nixgl.overlay
+              inputs.android-nixpkgs.overlays.default
+            ];
           };
         in
         home-manager.lib.homeManagerConfiguration {
@@ -34,7 +37,7 @@
           extraSpecialArgs = {
             inherit (inputs) nixgl;
             inherit variables;
-            inputs = { inherit (inputs) firefox-addons zen-browser; };
+            inputs = { inherit (inputs) firefox-addons zen-browser opencode android-nixpkgs; };
           };
           modules = [
             host
@@ -75,6 +78,9 @@
 
       # nix run nixpkgs#home-manager -- switch --flake .#debian
       homeConfigurations.debian = mkStandaloneHM ./hosts/debian [ ];
+
+      # nix run nixpkgs#home-manager -- switch --flake .#kde
+      homeConfigurations.kde = mkStandaloneHM ./hosts/kde [ ];
     };
 
   inputs = {
@@ -115,6 +121,11 @@
     };
 
     opencode.url = "github:dan-online/opencode-nix";
+
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 }
